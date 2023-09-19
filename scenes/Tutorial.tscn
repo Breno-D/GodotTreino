@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://biv0yxhl5t888"]
+
+[ext_resource type="Texture2D" uid="uid://dkggyyjxwuio" path="res://sprites/levelLayout/Level 01-01.png" id="1_8anys"]
+[ext_resource type="PackedScene" uid="uid://3xagueue48ud" path="res://prefabs/key.tscn" id="1_uybk2"]
+[ext_resource type="Texture2D" uid="uid://ch1tq584xw0by" path="res://sprites/levelLayout/Level 01-01 floor.png" id="2_1110r"]
+[ext_resource type="PackedScene" uid="uid://bnncyeytqtjt7" path="res://prefabs/door.tscn" id="2_fss4b"]
+
+[node name="TutorialScene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-2, 1)
+zoom = Vector2(0.6, 0.6)
+
+[node name="key" parent="." instance=ExtResource("1_uybk2")]
+position = Vector2(2, 365)
+scale = Vector2(0.75, 0.75)
+frame = 4
+
+[node name="door" parent="." instance=ExtResource("2_fss4b")]
+position = Vector2(798, 349)
+
+[node name="background" type="Node" parent="."]
+
+[node name="background" type="Sprite2D" parent="background"]
+z_index = -1
+texture = ExtResource("1_8anys")
+
+[node name="Level01-01Floor" type="Sprite2D" parent="background"]
+z_index = -1
+position = Vector2(0, 83)
+texture = ExtResource("2_1110r")
+
+[editable path="key"]

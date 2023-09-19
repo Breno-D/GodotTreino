@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnncyeytqtjt7"]
+
+[ext_resource type="Texture2D" uid="uid://c5jamr1e1ia3r" path="res://sprites/porta.png" id="1_rbe1x"]
+
+[sub_resource type="Animation" id="Animation_yjfrt"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_ubb2y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ijon"]
+_data = {
+"RESET": SubResource("Animation_ubb2y"),
+"open": SubResource("Animation_yjfrt")
+}
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_rbe1x")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2ijon")
+}
